@@ -1,0 +1,303 @@
+/* stylelint-disable function-no-unknown */
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable @stylistic/no-eol-whitespace */
+/* stylelint-disable value-no-vendor-prefix */
+/* stylelint-disable number-max-precision */
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable declaration-block-no-duplicate-properties */
+/* stylelint-disable @stylistic/indentation */
+/* stylelint-disable scss/at-mixin-pattern, scss/dollar-variable-pattern, scss/at-rule-no-unknown, selector-class-pattern, keyframes-name-pattern */
+
+@mixin anim($property, $time, $func, $delay) {
+    -webkit-transition: $property $time $func $delay;
+    -moz-transition: $property $time $func $delay;
+    -ms-transition: $property $time $func $delay;
+    -o-transition: $property $time $func $delay;
+    transition: $property $time $func $delay;
+}
+
+@mixin anim_cubic($time, $delay) {
+    -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    -o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+    transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+
+@mixin anim_cubic_custom($property, $time, $cubic, $delay) {
+    -webkit-transition: $property $time cubic-bezier($cubic) $delay;
+    -ms-transition: $property $time cubic-bezier($cubic) $delay;
+    -moz-transition: $property $time cubic-bezier($cubic) $delay;
+    -o-transition: $property $time cubic-bezier($cubic) $delay;
+    transition: $property $time cubic-bezier($cubic) $delay;
+}
+
+@mixin rotate($deg) {
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    -webkit-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin rot_scale($deg, $num) {
+    -moz-transform: rotate($deg) scale($num);
+    -ms-transform: rotate($deg) scale($num);
+    -webkit-transform: rotate($deg) scale($num);
+    -o-transform: rotate($deg) scale($num);
+    transform: rotate($deg) scale($num);
+}
+
+@mixin rot_scaleX($deg, $num) {
+    -moz-transform: rotate($deg) scaleX($num);
+    -ms-transform: rotate($deg) scaleX($num);
+    -webkit-transform: rotate($deg) scaleX($num);
+    -o-transform: rotate($deg) scaleX($num);
+    transform: rotate($deg) scaleX($num);
+}
+
+@mixin tr_rot($x, $y, $deg) {
+    -moz-transform: translate($x, $y) rotate($deg);
+    -ms-transform: translate($x, $y) rotate($deg);
+    -webkit-transform: translate($x, $y) rotate($deg);
+    -o-transform: translate($x, $y) rotate($deg);
+    transform: translate($x, $y) rotate($deg);
+}
+
+@mixin tr_scale($x, $y, $num) {
+    -moz-transform: translate($x, $y) scale($num);
+    -ms-transform: translate($x, $y) scale($num);
+    -webkit-transform: translate($x, $y) scale($num);
+    -o-transform: translate($x, $y) scale($num);
+    transform: translate($x, $y) scale($num);
+}
+
+@mixin tr_rot_scale($x, $y, $deg, $num) {
+    -moz-transform: translate($x, $y) rotate($deg) scale($num);
+    -ms-transform: translate($x, $y) rotate($deg) scale($num);
+    -webkit-transform: translate($x, $y) rotate($deg) scale($num);
+    -o-transform: translate($x, $y) rotate($deg) scale($num);
+    transform: translate($x, $y) rotate($deg) scale($num);
+}
+
+@mixin scale($num) {
+    -moz-transform: scale($num);
+    -ms-transform: scale($num);
+    -webkit-transform: scale($num);
+    -o-transform: scale($num);
+    transform: scale($num);
+}
+
+@mixin skew($num) {
+    -webkit-transform: skewX($num);
+    -moz-transform: skewX($num);
+    -ms-transform: skewX($num);
+    -o-transform: skewX($num);
+    transform: skewX($num);
+}
+
+@mixin cnt($h) {
+    display: flex;
+    flex-direction: column;
+    height: $h;
+    text-align: center;
+    align-items: stretch;
+    justify-content: center;
+}
+
+@mixin tr($x, $y) {
+    transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+@mixin trIMPORTANT($x, $y) {
+    transform: translate($x, $y) !important;
+    -moz-transform: translate($x, $y) !important;
+    -ms-transform: translate($x, $y) !important;
+    -webkit-transform: translate($x, $y) !important;
+    -o-transform: translate($x, $y) !important;
+    transform: translate($x, $y) !important;
+}
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin inline_flexbox() {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+}
+
+@mixin grid() {
+    display: -ms-grid;
+    display: -moz-grid;
+    display: grid;
+}
+
+@mixin inline_grid() {
+    display: -ms-inline-grid;
+    display: -moz-inline-grid;
+    display: inline-grid;
+}
+
+@mixin flexorder($val) {
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
+}
+
+@mixin accentOnHover() {
+    transition: all 130ms ease-in;
+    
+    &:hover {
+      background-color: $ACCENT;
+    }
+}
+
+:root {
+  --coefficient: 0.3333;         // Минимальный коэффициент (например, для clamp min)
+  --device-width: 1920;          // Базовая ширина устройства для fluid
+  --mobile-coefficient: 1;       // Десктоп коэффициент
+  --design-width: 1920;          // Базовая ширина макета
+}
+
+@media only screen and (max-width: 640px) {
+  :root {
+    --coefficient: 0.8205;          // Минимальный коэффициент на мобиле
+    --device-width: 640;
+    --mobile-coefficient: 1.641; // Твой целевой коэффициент для мобилки
+    --design-width: 640;         // Ширина мобильного макета
+  }
+}
+
+// Универсальный адаптивный clamp
+@function adaptive($val) {
+  @return clamp(
+    calc(#{$val}px * var(--coefficient)),
+    calc(#{$val} * 100vw / var(--design-width) * var(--mobile-coefficient)),
+    calc(#{$val}px * var(--mobile-coefficient))
+  );
+}
+
+
+// ===== Размеры =====
+@mixin width($val) {
+  width: adaptive($val);
+}
+
+@mixin MinWidth($val) {
+  min-width: adaptive($val);
+}
+
+@mixin MaxWidth($val) {
+  max-width: adaptive($val);
+}
+
+@mixin height($val) {
+  height: adaptive($val);
+}
+
+@mixin MinHeight($val) {
+  min-height: adaptive($val);
+}
+
+@mixin MaxHeight($val) {
+  max-height: adaptive($val);
+}
+
+// ===== Margin =====
+@mixin margin($top, $right, $bottom, $left) {
+  margin: adaptive($top) adaptive($right) adaptive($bottom) adaptive($left);
+}
+
+@mixin marginTop($val) {
+  margin-top: adaptive($val);
+}
+
+@mixin marginRight($val) {
+  margin-right: adaptive($val);
+}
+
+@mixin marginBottom($val) {
+  margin-bottom: adaptive($val);
+}
+
+@mixin marginLeft($val) {
+  margin-left: adaptive($val);
+}
+
+// ===== Padding =====
+@mixin padding($top, $right, $bottom, $left) {
+  padding: adaptive($top) adaptive($right) adaptive($bottom) adaptive($left);
+}
+
+@mixin paddingTop($val) {
+  padding-top: adaptive($val);
+}
+
+@mixin paddingRight($val) {
+  padding-right: adaptive($val);
+}
+
+@mixin paddingBottom($val) {
+  padding-bottom: adaptive($val);
+}
+
+@mixin paddingLeft($val) {
+  padding-left: adaptive($val);
+}
+
+// ===== Позиционирование =====
+@mixin top($val) {
+  top: adaptive($val);
+}
+
+@mixin right($val) {
+  right: adaptive($val);
+}
+
+@mixin bottom($val) {
+  bottom: adaptive($val);
+}
+
+@mixin left($val) {
+  left: adaptive($val);
+}
+
+// ===== Разное =====
+@mixin borderRadius($val) {
+  border-radius: adaptive($val);
+}
+
+@mixin borderRadiusFull($top, $right, $bottom, $left) {
+  border-radius: adaptive($top) adaptive($right) adaptive($bottom) adaptive($left);
+}
+
+@mixin fontSize($val) {
+  font-size: adaptive($val);
+}
+
+@mixin lineHeight($val) {
+  line-height: adaptive($val);
+}
+
+@mixin gap($val) {
+  gap: adaptive($val);
+}
+
+@mixin rowGap($val) {
+  row-gap: adaptive($val);
+}

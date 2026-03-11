@@ -1,0 +1,9 @@
+// {
+//   "stylelint.config": null,
+//   "stylelint.validate": ["css", "scss"],
+//   "stylelint.snippet": ["css", "scss"],
+//   "stylelint.ignoreDisables": false,
+//   "css.validate": false,
+//   "scss.validate": false,
+//   "less.validate": false
+// }

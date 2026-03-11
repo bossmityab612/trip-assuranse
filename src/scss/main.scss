@@ -1,13 +1,15 @@
 @import "normalize";
+@import "mixins";
 
 .test {
   border: 1px solid #000000;
   color: #b10000;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 50px auto;
+  padding: 20px;
+
+  @include flexbox;
+  @include width(400);
+  @include height(200);
+  @include borderRadius(20);
 }
 
