@@ -171,10 +171,10 @@ function images() {
   .pipe(gulp.dest('./public/images/'))
 }
 
-// Таска для fonts (пример)
+// Таска для fonts
 function fonts() {
-  return src(paths.src.fonts)
-    .pipe(dest(paths.public.fonts));
+  return gulp.src('./src/fonts/**/*', { encoding: false })
+    .pipe(gulp.dest('./public/fonts/'))
 }
 
 // Сервер
@@ -204,6 +204,7 @@ const dev = series(
 // Экспортируем таски
 exports.scripts = scripts;
 exports.images = images;
+exports.fonts = fonts;
 exports.scriptsDev = scriptsDev;
 exports.clean = clean;
 exports.build = build;
