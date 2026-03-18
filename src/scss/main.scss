@@ -238,7 +238,7 @@ body {
 //-- ------------ Бегущая строка ----------
 
 .running-line {
-  border: 1px solid #000000;
+  background-color: #ff7575;
   margin: 150px auto;
   width: 100%;
 
@@ -246,3 +246,46 @@ body {
 }
 
 //-- ------------ /Бегущая строка ----------
+
+
+// -------------- Блок с отзывами -----------
+
+.reviews {
+  border: 1px solid #000000;
+  margin: 0 auto;
+
+  @include MaxWidth(1240);
+  @include MinHeight(220);
+}
+
+.reviews h3 {
+  margin: 0 auto 48px;
+  justify-content: center;
+  align-items: center;
+
+  @include flexbox();
+}
+
+.reviews ul {
+  border: 1px solid #000000;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  justify-content: space-between;
+
+  @include flexbox();
+}
+
+.reviews ul li {
+  border: 1px solid #15b300;
+  background-color: #5200d9;
+  margin: 0;
+  padding: 0;
+
+  @include MaxWidth(295);
+  @include MinHeight(220);
+}
+
+// -------------- /Блок с отзывами -----------
+
