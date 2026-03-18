@@ -22,6 +22,7 @@ html {
 
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
 /**
@@ -38,8 +39,7 @@ main {
  */
 
 h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 /* Grouping content
@@ -94,7 +94,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: normal;
 }
 
 /**

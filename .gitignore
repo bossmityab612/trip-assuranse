@@ -1,1 +1,11 @@
-node_modules
+# Папки с зависимостями
+node_modules/
+
+# Файлы окружения
+.env
+.env.local
+.DS_Store
+
+# Папка со сборкой (если есть)
+/public
+/build

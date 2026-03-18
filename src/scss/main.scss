@@ -1,15 +1,33 @@
 @import "normalize";
 @import "mixins";
 
-.test {
-  border: 1px solid #000000;
-  color: #b10000;
-  margin: 50px auto;
-  padding: 20px;
+html {
+  height: 100%;
+}
 
-  @include flexbox;
-  @include width(400);
-  @include height(200);
+.header {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ff0000;
+  margin: 0 auto;
+  padding: 20px;
+  background-image: url("../images/bg-image-intro.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  justify-content: center;
+  align-items: center;
+
+  // @include MaxWidth(1920);
+  // @include MinHeight(1080);
   @include borderRadius(20);
+  @include flexbox();
+}
+
+.header h1 {
+  // font-weight: normal;
+  border: 1px solid #000000;
+
+  @include fontSize(64);
 }
 
