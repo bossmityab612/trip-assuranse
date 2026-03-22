@@ -2,13 +2,16 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "editorconfig": "editorconfig-checker",
+    "images": "gulp images"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
     "browser-sync": "^3.0.4",
     "del": "^8.0.1",
+    "editorconfig-checker": "^6.1.1",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
@@ -24,6 +27,8 @@
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^5.1.0",
+    "postcss-csso": "^6.0.1",
     "sass": "^1.98.0",
     "stylelint": "^16.26.1",
     "stylelint-config-htmlacademy": "^4.4.0",

@@ -161,7 +161,7 @@
 
 @mixin accentOnHover() {
     transition: all 130ms ease-in;
-    
+
     &:hover {
       background-color: $ACCENT;
     }

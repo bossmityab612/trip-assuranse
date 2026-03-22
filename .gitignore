@@ -6,6 +6,5 @@ node_modules/
 .env.local
 .DS_Store
 
-# Папка со сборкой (если есть)
-/public
+# Папка со сборкой
 /build
