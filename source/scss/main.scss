@@ -316,6 +316,49 @@ body {
 
 // -------------- /Блок с отзывами -----------
 
+// Тренировочный блок
+
+.parent {
+  position: relative;
+  margin: 100px auto;
+  width: 150px;
+  height: 30px;
+  // border-radius: 6px;
+
+  @include flexbox();
+  justify-content: center;
+  align-items: center;
+
+  // Псевдоэлемент для градиентной обводки
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; // = top:0; right:0; bottom:0; left:0;
+    border-radius: 3px;
+    padding: 1px; // толщина обводки
+    background: linear-gradient(to right, #298e86, #46e682);
+    mask: linear-gradient(#ffffff 0 0) content-box, linear-gradient(#ffffff 0 0);
+    mask-composite: exclude;
+    pointer-events: none; // чтобы псевдоэлемент не мешал кликам
+  }
+}
+
+.child {
+  background: linear-gradient(to right, #298e86, #46e682);
+  border-radius: 2px;
+  width: calc(100% - 6px); // учитываем толщину обводки
+  height: calc(100% - 6px);
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+
+  @include flexbox();
+}
+
+// /Тренировочный блок
+
 // ---------- Подвал -----------
 
 footer {

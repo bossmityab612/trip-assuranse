@@ -3,7 +3,7 @@ const plumber = require("gulp-plumber");
 const sourcemaps = require("gulp-sourcemaps");
 const sass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("gulp-autoprefixer");
-const csso = require("postcss-csso");
+const csso = require("postcss-csso");                  // пакет для минификации файлов
 const browserSync = require("browser-sync").create();
 const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
@@ -173,7 +173,7 @@ function watchFiles() {
   watch(paths.source.html, html);
   watch(paths.source.styles, styles);
   watch(paths.source.scripts, scriptsDev);  // при разработке используем scriptsDev
-  watch(paths.source.images, images);
+  watch(paths.source.images, copyImages);
   watch(paths.source.fonts, fonts);
 }
 
