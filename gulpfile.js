@@ -7,6 +7,8 @@ const csso = require("postcss-csso");                  // пакет для ми
 const browserSync = require("browser-sync").create();
 const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
+const svgstore = require("gulp-svgstore");
+const fileInclude = require("gulp-file-include");
 const cleanCSS = require("gulp-clean-css");
 const groupCssMediaQueries = require("gulp-group-css-media-queries");
 
@@ -50,11 +52,12 @@ const handleError = function (err) {
   this.emit("end");
 };
 
+// Спрайты
 const sprite = () => {
   return src("source/images/icons/*.svg")
-    .pipe(svgstore)({
+    .pipe(svgstore({
       inlineSvg: true
-    })
+    }))
     .pipe(rename("sprite.svg"))
     .pipe(dest("build/images"));
 }
@@ -102,10 +105,14 @@ function scriptsDev() {
 // Таска для HTML
 function html() {
   return src(paths.source.html)
+    .pipe(fileInclude({
+      prefix: '@@',
+      basepath: './'
+    }))
     .pipe(plumber({ errorHandler: handleError }))
-    .pipe(htmlmin({ collapseWhitespace: true }))   // сначала минификация
-    .pipe(dest(paths.build.base))                  // потом сохранение
-    .pipe(browserSync.stream());                   // потом обновление браузера
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest(paths.build.base))
+    .pipe(browserSync.stream());
 }
 
 // Таска для обработки SCSS в CSS
@@ -129,13 +136,13 @@ function styles() {
 
     // Минифицируем CSS для продакшена
     .pipe(cleanCSS({
-      level: 2  // максимальная минификация
+      level: 2                        // максимальная минификация
     }))
 
     // Переименовываем с суффиксом .min
     .pipe(rename({ suffix: ".min" }))
 
-    .pipe(sourcemaps.write("."))                // записываем sourcemaps
+    .pipe(sourcemaps.write("."))       // записываем sourcemaps
 
     // Выгружаем в build/css/
     .pipe(dest(paths.build.styles))
@@ -204,7 +211,7 @@ function createWebp() {
 // Таска для fonts
 function fonts() {
   return src("./source/fonts/**/*", { encoding: false })
-    .pipe(dest("./build/fonts/"))
+    .pipe(dest("./build/fonts/"));
 }
 
 // Сервер
@@ -223,6 +230,7 @@ function serve() {
 // Сборка для продакшна (с минификацией)
 const build = series(
   clean,
+  sprite,
   parallel(html, styles, scripts, fonts),
   optimizeImages,
   copyImages
@@ -231,6 +239,7 @@ const build = series(
 // Сборка для разработки (без минификации JS)
 const dev = series(
   clean,
+  sprite,
   parallel(html, styles, scriptsDev, copyImages, fonts),
   parallel(serve, watchFiles)
 );

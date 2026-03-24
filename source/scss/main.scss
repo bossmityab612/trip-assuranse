@@ -49,6 +49,8 @@ body {
   height: 100%;
   justify-content: space-between;
   align-items: flex-end;
+  box-sizing: border-box;
+  border: 1px solid #000000;
 
   @include flexbox();
   @include MinHeight(67);
@@ -220,15 +222,18 @@ body {
   @include flexbox();
 }
 
-.instructions h3 {
-  border: 1px solid #000000;
+.subtitle {
   margin: 0 auto;
+  font-weight: 600;
+  color: #11002d;
+  text-align: center;
 
   @include fontSize(32);
 }
 
 .instructions ul {
-  border: 1px solid #000000;
+  width: 100%;
+  height: 100%;
   margin: 56px auto 0;
   padding: 0;
   justify-content: space-between;
@@ -240,12 +245,13 @@ body {
 }
 
 .instructions ul li {
-  border: 1px solid #000000;
+  padding-bottom: 34px;
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  position: relative;
 
   @include MaxWidth(295);
   @include MinHeight(295);
@@ -253,8 +259,39 @@ body {
   @include flexbox();
 }
 
+.instructions ul li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5200d9;
+  opacity: 0.1;
+}
+
+.instructions ul li div {
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include MaxWidth(219);
+  @include MinHeight(191);
+  @include flexbox();
+}
+
+.instructions ul li svg {
+  width: 89px;
+  height: 114px;
+}
+
 .instructions ul li span {
+  width: 100%;
+  height: 100%;
   text-align: center;
+  display: block;
+  box-sizing: border-box;
 
   @include MaxWidth(219);
   @include MinHeight(48);
@@ -278,42 +315,101 @@ body {
 // -------------- Блок с отзывами -----------
 
 .reviews {
-  border: 1px solid #000000;
   margin: 0 auto;
-
-  @include MaxWidth(1240);
-  @include MinHeight(220);
 }
 
-.reviews h3 {
-  margin: 0 auto 48px;
-  justify-content: center;
-  align-items: center;
-
-  @include flexbox();
+.reviews .instructions__title {
+  margin-bottom: 48px;
 }
 
 .reviews ul {
-  border: 1px solid #000000;
-  margin: 0;
   padding: 0;
+  margin: 0 auto;
   width: 100%;
+  height: 100%;
   list-style: none;
   justify-content: space-between;
 
   @include flexbox();
+  @include MaxWidth(1240);
+  @include MaxHeight(220);
 }
 
 .reviews ul li {
-  border: 1px solid #15b300;
-  background-color: #5200d9;
+  width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
 
-  @include MaxWidth(295);
   @include MinHeight(220);
+  @include MaxWidth(295);
+  @include borderRadius(5);
 }
 
+.reviews ul li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5200d9;
+  opacity: 0.1;
+}
+
+.reviews__list-block p {
+  color: #11002d;
+}
+
+.reviews__list-block-rate-date {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @include MaxHeight(24);
+  @include flexbox();
+}
+
+.reviews__list-block-rate-date span {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.reviews__list-block-rate-date svg {
+  width: 100%;
+  height: 100%;
+
+  @include MaxHeight(24);
+  @include MaxWidth(24);
+}
+
+.reviews__profile {
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: #11002d;
+
+  @include MaxWidth(152);
+  @include MaxHeight(32);
+  @include flexbox();
+}
+
+.reviews__profile svg {
+  width: 32px;
+  height: 32px;
+}
+
+.reviews__profile span {
+  @include fontSize(14);
+}
 // -------------- /Блок с отзывами -----------
 
 // Тренировочный блок
