@@ -1,0 +1,46 @@
+// -------------- Блок с отзывами -----------
+
+.reviews {
+  margin: 0 auto;
+}
+
+.reviews .subtitle {
+  margin-bottom: 48px;
+}
+
+.reviews ul {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  justify-content: space-between;
+
+  @include flexbox();
+  @include MaxWidth(1240);
+  @include MaxHeight(220);
+}
+
+.reviews ul li {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @include MinHeight(220);
+  @include MaxWidth(295);
+  @include borderRadius(5);
+}
+
+.reviews ul li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5200d9;
+  opacity: 0.1;
+}

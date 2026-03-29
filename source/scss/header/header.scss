@@ -1,0 +1,56 @@
+// -------- Хедер с формой стоимости ---------
+
+.header {
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
+  background-image: url("../images/bg-image-intro.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  color: #ffffff;
+
+  @include MaxWidth(1920);
+  @include MinHeight(1080);
+  @include flexbox();
+}
+
+.header h1 {
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  margin: 240px auto 17px;
+
+  @include fontSize(40);
+  @include MaxWidth(676);
+  @include MinHeight(48);
+}
+
+.header h2 {
+  margin: 0 auto;
+  font-weight: 400;
+
+  @include fontSize(28);
+  @include MaxWidth(576);
+  @include MinHeight(34);
+}
+
+.header button {
+  margin: 40px auto;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  background-color: #5200d9;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+
+  @include MaxWidth(232);
+  @include MinHeight(64);
+  @include fontSize(18);
+  @include lineHeight(91%);
+  @include borderRadius(5);
+  @include flexbox();
+}

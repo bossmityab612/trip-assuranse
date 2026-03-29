@@ -1,0 +1,47 @@
+.description__text-block:first-child {
+  margin: 32px 0 0;
+}
+
+.description__text-block {
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  @include MinHeight(399);
+  @include flexbox();
+}
+
+.description__text-block div {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: #11002d;
+
+  @include MaxWidth(505);
+  @include MinHeight(229);
+}
+
+.description__text-block img {
+  object-fit: cover;
+
+  @include MaxWidth(399);
+  @include MinHeight(399);
+}
+
+.description__text-block div h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+
+  @include fontSize(32);
+}
+
+.description__text-block div p {
+  margin: 38px 0 0;
+  padding: 0;
+  font-weight: 100;
+
+  @include fontSize(15);
+  @include lineHeight(25);
+}

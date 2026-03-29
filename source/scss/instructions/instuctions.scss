@@ -1,0 +1,78 @@
+// ---------- Блок с инструкцией приобретения полиса ---------
+
+.instructions {
+  margin: 150px auto 0;
+  justify-content: center;
+  flex-direction: column;
+
+  @include flexbox();
+}
+
+.instructions ul {
+  width: 100%;
+  height: 100%;
+  margin: 56px auto 0;
+  padding: 0;
+  justify-content: space-between;
+  list-style: none;
+
+  @include MaxWidth(1240);
+  @include MinHeight(295);
+  @include flexbox();
+}
+
+.instructions ul li {
+  padding-bottom: 34px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+
+  @include MaxWidth(295);
+  @include MinHeight(295);
+  @include borderRadius(5);
+  @include flexbox();
+}
+
+.instructions ul li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5200d9;
+  opacity: 0.1;
+}
+
+.instructions ul li div {
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include MaxWidth(219);
+  @include MinHeight(191);
+  @include flexbox();
+}
+
+.instructions ul li svg {
+  width: 100%;
+  height: 100%;
+
+  @include MaxWidth(89);
+  @include MaxHeight(114);
+}
+
+.instructions ul li span {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+
+  @include MaxWidth(219);
+  @include MinHeight(48);
+}

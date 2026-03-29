@@ -1,0 +1,40 @@
+// ---------- Подвал -----------
+
+footer {
+  margin: 200px auto 0;
+  padding-top: 32px;
+  border: 1px solid #5200d9;
+  width: 100%;
+}
+
+footer div {
+  border: 1px solid #000000;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+
+  @include MaxWidth(1240);
+  @include MinHeight(176);
+  @include flexbox();
+}
+
+footer div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include fontSize(14);
+}
+
+footer div ul li {
+  margin-bottom: 8px;
+  padding: 0;
+
+  @include lineHeight(16);
+}
+
+footer div ul li:first-child {
+  font-weight: 600;
+  margin-bottom: 12px;
+}

@@ -64,27 +64,17 @@ const sprite = () => {
 
 // === Обработка JavaScript ===
 function scripts() {
-  return src(paths.source.scripts)                // берем все JS файлы из source/js/
-    .pipe(plumber({ errorHandler: handleError })) // ловим ошибки
-    .pipe(sourcemaps.init())                      // начинаем карту кода
-
-    // Транспиляция ES6+ в ES5 (совместимость со старыми браузерами)
+  return src(paths.source.scripts)
+    .pipe(plumber({ errorHandler: handleError }))
+    .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ["@babel/env"]
     }))
-
-    // Минификация (сжатие кода)
     .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
 
-    // Сохраняем обычную версию (если нужно)
-    .pipe(rename({ suffix: ".min" }))        // добавляем .min к имени
-
-    .pipe(sourcemaps.write("."))              // записываем sourcemaps
-
-    // Выгружаем в папку build/js/
+    .pipe(sourcemaps.write("."))
     .pipe(dest(paths.build.scripts))
-
-    // Обновляем браузер
     .pipe(browserSync.stream());
 }
 
@@ -96,7 +86,6 @@ function scriptsDev() {
     .pipe(babel({
       presets: ["@babel/env"]
     }))
-    // Пропускаем uglify для разработки (легче дебажить)
     .pipe(sourcemaps.write("."))
     .pipe(dest(paths.build.scripts))
     .pipe(browserSync.stream());
@@ -117,58 +106,43 @@ function html() {
 
 // Таска для обработки SCSS в CSS
 function styles() {
-  return src(paths.source.styles)                 // берем все SCSS файлы
-    .pipe(plumber({ errorHandler: handleError })) // ловим ошибки
-    .pipe(sourcemaps.init())                      // начинаем карту кода
-
-    // Компилируем SCSS в CSS
+  return src(paths.source.styles)
+    .pipe(plumber({ errorHandler: handleError }))
+    .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: "expanded"  // "expanded" для разработки, "compressed" для продакшена
     }).on("error", sass.logError))
-
-    // Группируем медиа-запросы (опционально)
     .pipe(groupCssMediaQueries())
-
-    // Добавляем вендорные префиксы (для поддержки старых браузеров)
     .pipe(autoprefixer({
       cascade: false
     }))
-
-    // Минифицируем CSS для продакшена
     .pipe(cleanCSS({
-      level: 2                        // максимальная минификация
+      level: 2
     }))
-
-    // Переименовываем с суффиксом .min
     .pipe(rename({ suffix: ".min" }))
-
-    .pipe(sourcemaps.write("."))       // записываем sourcemaps
-
-    // Выгружаем в build/css/
+    .pipe(sourcemaps.write("."))
     .pipe(dest(paths.build.styles))
-
-    // Обновляем браузер
     .pipe(browserSync.stream());
 }
 
-// // Версия для разработки (без минификации, легче дебажить)
-// function stylesDev() {
-//   return src(paths.source.styles)
-//     .pipe(plumber({ errorHandler: handleError }))
-//     .pipe(sourcemaps.init())
-//     .pipe(sass({
-//       outputStyle: "expanded"  // развернутый CSS для читаемости
-//     }).on("error", sass.logError))
-//     .pipe(groupCssMediaQueries())
-//     .pipe(autoprefixer({
-//       cascade: false
-//     }))
-//     // Пропускаем cleanCSS для разработки
-//     .pipe(rename({ suffix: ".min" }))  // все равно добавляем .min для соответствия HTML
-//     .pipe(sourcemaps.write("."))
-//     .pipe(dest(paths.build.styles))
-//     .pipe(browserSync.stream());
-// }
+// Версия для разработки (без минификации, легче дебажить)
+function stylesDev() {
+  return src(paths.source.styles)
+    .pipe(plumber({ errorHandler: handleError }))
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: "expanded"  // развернутый CSS для читаемости
+    }).on("error", sass.logError))
+    .pipe(groupCssMediaQueries())
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    // Пропускаем cleanCSS для разработки
+    .pipe(rename({ suffix: ".min" }))  // все равно добавляем .min для соответствия HTML
+    .pipe(sourcemaps.write("."))
+    .pipe(dest(paths.build.styles))
+    .pipe(browserSync.stream());
+}
 
 // Очистка папки build
 async function clean() {

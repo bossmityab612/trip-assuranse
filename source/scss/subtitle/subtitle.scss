@@ -1,0 +1,8 @@
+.subtitle {
+  margin: 0 auto;
+  font-weight: 600;
+  color: #11002d;
+  text-align: center;
+
+  @include fontSize(32);
+}

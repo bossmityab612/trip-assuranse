@@ -1,0 +1,8 @@
+.reviews__list-block {
+  @include fontSize(14);
+}
+
+.reviews__list-block p {
+  color: #11002d;
+  font-weight: 400;
+}

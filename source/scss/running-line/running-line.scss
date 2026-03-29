@@ -1,0 +1,9 @@
+//-- ------------ Бегущая строка ----------
+
+.running-line {
+  background-color: #ff7575;
+  margin: 150px auto;
+  width: 100%;
+
+  @include MinHeight(340);
+}
