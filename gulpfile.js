@@ -13,7 +13,7 @@ const cleanCSS = require("gulp-clean-css");
 const groupCssMediaQueries = require("gulp-group-css-media-queries");
 
 const { src, dest, watch, series, parallel } = require("gulp");
-const notify = require("gulp-notify");
+// const notify = require("gulp-notify");
 const { default: webp } = require("gulp-webp");
 const { deleteAsync } = require("del");
 
@@ -43,14 +43,10 @@ const paths = {
 };
 
 // Обработка ошибок
-const handleError = function (err) {
-  notify.onError({
-    title: "Gulp error",
-    message: "<%= error.message %>",
-    sound: "Beep"
-  })(err);
-  this.emit("end");
-};
+function handleError(error) {
+  console.log(error.toString());
+  this.emit('end');
+}
 
 // Спрайты
 const sprite = () => {
@@ -192,7 +188,10 @@ function fonts() {
 function serve() {
   browserSync.init({
     server: {
-      baseDir: paths.build.base  // корневая папка
+      baseDir: './build',
+      routes: {
+        '/dist': './dist'
+      }
     },
     port: 3000,
     cors: true,

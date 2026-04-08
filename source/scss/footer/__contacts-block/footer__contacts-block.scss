@@ -1,0 +1,26 @@
+@import "../../mixins";
+
+.footer__contacts-block {
+  width: 100%;
+  min-height: 80px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  gap: 30px;
+
+  @include flexbox();
+  @include MaxWidth(221);
+}
+
+.footer__contacts-block a {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.footer__contacts-block a svg {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+}

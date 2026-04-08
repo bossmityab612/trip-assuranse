@@ -1,20 +1,21 @@
+@import "mixins";
 @import "normalize";
 @import "../fonts/inter.css";
-@import "mixins";
-@import "../scss/container/container.scss";
-@import "../scss/header/header.scss";
-@import "../scss/header/__list/header__list.scss";
-@import "../scss/header/__form/header__form.scss";
-@import "../scss/description/description.scss";
-@import "../scss/description/__text-block/description__text-block.scss";
-@import "../scss/subtitle/subtitle.scss";
-@import "../scss/instructions/instuctions.scss";
-@import "../scss/running-line/running-line.scss";
-@import "../scss/reviews/reviews.scss";
-@import "../scss/reviews/__list-block/reviews__list-block.scss";
-@import "../scss/reviews/__list-block-rate-date/reviews__list-block-rate-date.scss";
-@import "../scss/reviews/__profile/reviews__profile.scss";
-@import "../scss/footer/footer.scss";
+@import "./container/container.scss";
+@import "./header/header.scss";
+@import "./header/__list/header__list.scss";
+@import "./header/__form/header__form.scss";
+@import "./description/description.scss";
+@import "./description/__text-block/description__text-block.scss";
+@import "./subtitle/subtitle.scss";
+@import "./instructions/instructions.scss";
+@import "./running-line/running-line.scss";
+@import "./reviews/reviews.scss";
+@import "./reviews/__list-block/reviews__list-block.scss";
+@import "./reviews/__list-block-rate-date/reviews__list-block-rate-date.scss";
+@import "./reviews/__profile/reviews__profile.scss";
+@import "./footer/footer.scss";
+@import "./footer/__contacts-block/footer__contacts-block";
 
 * {
   box-sizing: border-box;
@@ -31,46 +32,3 @@ html {
 body {
   font-family: "Inter", "arial", "helvetica", sans-serif;
 }
-
-// Тренировочный блок
-
-.parent {
-  position: relative;
-  margin: 100px auto;
-  width: 150px;
-  height: 30px;
-  // border-radius: 6px;
-
-  @include flexbox();
-  justify-content: center;
-  align-items: center;
-
-  // Псевдоэлемент для градиентной обводки
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0; // = top:0; right:0; bottom:0; left:0;
-    border-radius: 3px;
-    padding: 1px; // толщина обводки
-    background: linear-gradient(to right, #298e86, #46e682);
-    mask: linear-gradient(#ffffff 0 0) content-box, linear-gradient(#ffffff 0 0);
-    mask-composite: exclude;
-    pointer-events: none; // чтобы псевдоэлемент не мешал кликам
-  }
-}
-
-.child {
-  background: linear-gradient(to right, #298e86, #46e682);
-  border-radius: 2px;
-  width: calc(100% - 6px); // учитываем толщину обводки
-  height: calc(100% - 6px);
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  position: relative;
-  z-index: 1;
-
-  @include flexbox();
-}
-
-// /Тренировочный блок

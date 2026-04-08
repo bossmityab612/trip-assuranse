@@ -1,3 +1,5 @@
+@import "../mixins";
+
 // ---------- Подвал -----------
 
 footer {
@@ -5,10 +7,10 @@ footer {
   padding-top: 32px;
   border: 1px solid #5200d9;
   width: 100%;
+  color: #11002b;
 }
 
 footer div {
-  border: 1px solid #000000;
   margin: 0 auto;
   width: 100%;
   height: 100%;
@@ -38,3 +40,4 @@ footer div ul li:first-child {
   font-weight: 600;
   margin-bottom: 12px;
 }
+

@@ -1,5 +1,4 @@
-import bar from "bar.js";
+import bar from "./bar.js";
+import "./swiper.js";
 
 bar();
-
-console.log('Hello, Gulp!');

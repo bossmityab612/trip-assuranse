@@ -203,7 +203,7 @@
 }
 
 @mixin MaxWidth($val) {
-  max-width: adaptive($val);
+  max-width: $val + px;
 }
 
 @mixin height($val) {

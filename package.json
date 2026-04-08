@@ -2,6 +2,7 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
+    "webpack-build": "webpack",
     "clean": "gulp clean",
     "editorconfig": "editorconfig-checker",
     "images": "gulp images"
@@ -10,6 +11,7 @@
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
     "browser-sync": "^3.0.4",
+    "css-loader": "^7.1.4",
     "del": "^8.0.1",
     "editorconfig-checker": "^6.1.1",
     "gulp": "^5.0.1",
@@ -30,14 +32,14 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^5.1.0",
     "postcss-csso": "^6.0.1",
+    "pristine": "^0.0.1",
     "sass": "^1.98.0",
+    "style-loader": "^4.0.0",
     "stylelint": "^16.26.1",
     "stylelint-config-htmlacademy": "^4.4.0",
     "stylelint-config-standard-scss": "^13.0.0",
+    "swiper": "^11.1.4",
     "webpack": "^5.105.4",
     "webpack-cli": "^7.0.2"
-  },
-  "dependencies": {
-    "pristine": "^0.0.1"
   }
 }

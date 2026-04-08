@@ -1,4 +1,41 @@
+@import "../mixins";
+
 // -------------- Блок с отзывами -----------
+
+.swiper {
+  // width: 100%;
+  width: 1240px;
+  border: 1px solid #000000;
+
+  // @include MaxWidth(1240);
+}
+
+// .swiper-button-prev,
+// .swiper-button-next {
+//   background-color: #81b3ff;
+//   opacity: 0.7;
+//   border-radius: 50%;
+
+//   pointer-events: auto;
+//   z-index: 10;
+//   cursor: pointer;
+// }
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "‹" / "›";
+  font-size: 30px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.swiper-button-prev::after {
+  content: "‹";
+}
+
+.swiper-button-next::after {
+  content: "›";
+}
 
 .reviews {
   margin: 0 auto;
@@ -13,25 +50,29 @@
   margin: 0 auto;
   width: 100%;
   height: 100%;
+  min-height: 220px;
   list-style: none;
   justify-content: space-between;
+  gap: 20px;
 
   @include flexbox();
   @include MaxWidth(1240);
-  @include MaxHeight(220);
 }
 
 .reviews ul li {
   width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 20px;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  @include MinHeight(220);
   @include MaxWidth(295);
   @include borderRadius(5);
+  @include flexbox();
 }
 
 .reviews ul li::after {
