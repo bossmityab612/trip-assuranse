@@ -176,7 +176,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
   \***************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bar.js */ \"./source/js/bar.js\");\n/* harmony import */ var _swiper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swiper.js */ \"./source/js/swiper.js\");\n\n\n\n(0,_bar_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./source/js/main.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bar.js */ \"./source/js/bar.js\");\n/* harmony import */ var _swiper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swiper.js */ \"./source/js/swiper.js\");\n\n\n\n(0,_bar_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  let getURL = function (linkURL, callback) {\n    let headContainer = document.querySelector('head');\n\n    const script = document.createElement('script');\n\n    script.type = 'javascript';\n    script.src = '/headLinks.js';\n    script.onload = () => {\n      if (callback) callback();\n      resolve();\n    };\n\n    headContainer.appendChild(script);\n\n    return linkURL;\n  }\n\n  getURL();\n});\n\n\n\n//# sourceURL=webpack:///./source/js/main.js?\n}");
 
 /***/ },
 
