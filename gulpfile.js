@@ -8,7 +8,6 @@ const browserSync = require("browser-sync").create();
 const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
 const svgstore = require("gulp-svgstore");
-const babel = require('gulp-babel');
 const fileInclude = require("gulp-file-include");
 const cleanCSS = require("gulp-clean-css");
 const groupCssMediaQueries = require("gulp-group-css-media-queries");
